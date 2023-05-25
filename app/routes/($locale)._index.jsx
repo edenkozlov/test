@@ -99,9 +99,23 @@ export default function Homepage() {
 
   return (
     <>
-      {primaryHero && (
-        <Hero {...primaryHero} height="full" top loading="eager" />
-      )}
+        <div style={{ position: 'relative', overflow: 'hidden' }}>
+  <video
+    src="https://cdn.shopify.com/videos/c/o/v/9139699968944f149a85141cc2350726.mp4"
+    alt="Tracks in the snow leading to a person on a mountain top with a red jacket contrasting to an epic blue horizon with a mountain range in the distance."
+    style={{ width: '100vw', height: '75vh', objectFit: 'cover' }}
+    autoPlay
+    loop
+    muted
+    playsInline
+  />
+
+  <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: '#fff' }}>
+    <h2 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Leather Jacket boiii</h2>
+    <p>buy 3 get 15% off!</p>
+    <a href="http://localhost:64003/products" style={{ color: '#fff' }}>Shop Now →</a>
+  </div>
+</div>
 
       {featuredProducts && (
         <Suspense>
@@ -119,6 +133,8 @@ export default function Homepage() {
           </Await>
         </Suspense>
       )}
+
+     
 
       {secondaryHero && (
         <Suspense fallback={<Hero {...skeletons[1]} />}>

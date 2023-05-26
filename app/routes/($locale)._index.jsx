@@ -251,6 +251,8 @@ export default function Homepage() {
     </div>
 
 */}
+
+test
       {featuredCollections && (
         <Suspense>
           <Await resolve={featuredCollections}>

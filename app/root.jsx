@@ -16,7 +16,8 @@ import invariant from 'tiny-invariant';
 import {Layout} from '~/components';
 import {seoPayload} from '~/lib/seo.server';
 
-import favicon from '../public/favicon.svg';
+import favicon from '../public/favicon.png';
+
 
 import {GenericError} from './components/GenericError';
 import {NotFound} from './components/NotFound';
@@ -35,7 +36,8 @@ export const links = () => {
       rel: 'preconnect',
       href: 'https://shop.app',
     },
-    {rel: 'icon', type: 'image/svg+xml', href: favicon},
+    {rel: 'icon', type: 'image/png', href: favicon},
+,
   ];
 };
 

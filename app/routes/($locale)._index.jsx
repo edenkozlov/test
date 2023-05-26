@@ -8,6 +8,8 @@ import {MEDIA_FRAGMENT, PRODUCT_CARD_FRAGMENT} from '~/data/fragments';
 import {getHeroPlaceholder} from '~/lib/placeholders';
 import {seoPayload} from '~/lib/seo.server';
 import {routeHeaders, CACHE_SHORT} from '~/data/cache';
+import Fade from 'react-reveal/Fade';
+
 
 export const headers = routeHeaders;
 
@@ -99,9 +101,27 @@ export default function Homepage() {
 
   return (
     <>
-      {primaryHero && (
-        <Hero {...primaryHero} height="full" top loading="eager" />
-      )}
+
+    {/*
+      <div style={{ position: 'relative', overflow: 'hidden' }}>
+  <video
+    src="https://cdn.shopify.com/videos/c/o/v/9139699968944f149a85141cc2350726.mp4"
+    alt="Tracks in the snow leading to a person on a mountain top with a red jacket contrasting to an epic blue horizon with a mountain range in the distance."
+    style={{ width: '100vw', height: '75vh', objectFit: 'cover' }}
+    autoPlay
+    loop
+    muted
+    playsInline
+  />
+
+  <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: '#fff' }}>
+    <h2 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Leather Jacket boiii</h2>
+    <p>buy 3 get 15% off!</p>
+    <a href="http://localhost:64003/products" style={{ color: '#fff' }}>Shop Now →</a>
+  </div>
+</div>
+
+  */}
 
       {featuredProducts && (
         <Suspense>
@@ -120,19 +140,117 @@ export default function Homepage() {
         </Suspense>
       )}
 
-     
+{/*
+<Fade right>
+<div>
+  {tertiaryHero && (
+    <div style={{ position: 'relative', margin: '2rem', borderRadius: '4px', overflow: 'hidden' }}>
+      <img
+        src="https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2F0bbe27c0-4f49-11eb-ad71-ea6bb4a570af.jpg?crop=2438%2C1371%2C66%2C5"
+        alt="Vintage"
+        style={{
+          width: '100%',
+          height: 'auto',
+          maxWidth: '100%',
+          maxHeight: '50%',
+          borderRadius: '4px'
+        }}
+      />
+      <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', textAlign: 'center', color: '#fff' }}>
+        <h2 style={{ fontSize: '3rem', marginBottom: '1rem' }}>Vintage Collection</h2>
+        <p>Just Dropped</p>
+        <a href="http://localhost:64003/products" style={{ color: '#fff' }}>Shop Now →</a>
+      </div>
+    </div>
+  )}
+</div>
+</Fade>
 
-      {secondaryHero && (
-        <Suspense fallback={<Hero {...skeletons[1]} />}>
-          <Await resolve={secondaryHero}>
-            {({hero}) => {
-              if (!hero) return <></>;
-              return <Hero {...hero} />;
-            }}
-          </Await>
-        </Suspense>
-      )}
+<div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-4 m-8">
+      <Fade direction="left" delay={500}>
+        <div className="hover-scroll-section">
+          <div className="relative">
+            <div style={{ paddingBottom: '100%', position: 'relative' }}>
+              <img
+                src="https://thumbs.dreamstime.com/b/vintage-cars-2001816.jpg"
+                alt="Vintage Cars"
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  borderRadius: '4px',
+                }}
+              />
+            </div>
+            <div className="absolute inset-0 flex flex-col justify-center items-center bg-opacity-0 hover:bg-opacity-75 transition-opacity duration-300">
+              <h3 className="text-black text-xl font-bold">About Us</h3>
+              <button className="mt-2 px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition-colors duration-300">
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+      </Fade>
+      <Fade direction="left" delay={750}>
+        <div className="hover-scroll-section">
+          <div className="relative">
+            <div style={{ paddingBottom: '100%', position: 'relative' }}>
+              <img
+                src="https://shotkit.com/wp-content/uploads/2020/09/vintage-photography-featured.jpg"
+                alt="Vintage Photography"
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  borderRadius: '4px',
+                }}
+              />
+            </div>
+            <div className="absolute inset-0 flex flex-col justify-center items-center bg-opacity-0 hover:bg-opacity-75 transition-opacity duration-300">
+              <h3 className="text-black text-xl font-bold">Contact Us</h3>
+              <button className="mt-2 px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition-colors duration-300">
+                Get in Touch
+              </button>
+            </div>
+          </div>
+        </div>
+      </Fade>
+      <Fade direction="left" delay={1000}>
+        <div className="hover-scroll-section">
+          <div className="relative">
+            <div style={{ paddingBottom: '100%', position: 'relative' }}>
+              <img
+                src="https://hips.hearstapps.com/hmg-prod/images/heather-chadduck-hillegas-colonial-williamsburg-dining-room-1669927357.jpg?resize=1200:*"
+                alt="Dining Room"
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  borderRadius: '4px',
+                }}
+              />
+            </div>
+            <div className="absolute inset-0 flex flex-col justify-center items-center bg-opacity-0 hover:bg-opacity-75 transition-opacity duration-300">
+              <h3 className="text-black text-xl font-bold">Socials</h3>
+              <button className="mt-2 px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition-colors duration-300">
+                Follow Us
+              </button>
+            </div>
+          </div>
+        </div>
+      </Fade>
+    </div>
 
+*/}
       {featuredCollections && (
         <Suspense>
           <Await resolve={featuredCollections}>

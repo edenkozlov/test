@@ -5,6 +5,7 @@ import {Text, Link, AddToCartButton} from '~/components';
 import {isDiscounted, isNewArrival} from '~/lib/utils';
 import {getProductPlaceholder} from '~/lib/placeholders';
 
+
 export function ProductCard({
   product,
   label,
